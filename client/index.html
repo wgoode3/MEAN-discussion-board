@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app='app'>
+<head>
+    <meta charset="utf-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1'> 
+	<title>Discussion Board</title>
+    <script src="angular/angular.js"></script>
+    <script src="angular-route/angular-route.js"></script>
+    <script src="angular-cookies/angular-cookies.js"></script>
+    <script src="jquery/dist/jquery.min.js"></script>
+    <link rel='stylesheet' href="bootstrap/dist/css/bootstrap.min.css">
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- End of bower scripts -->
+    <script src="app.js"></script>
+    <script src="assets/factories/userFactory.js"></script>
+    <script src="assets/factories/topicFactory.js"></script>
+    <script src="assets/controllers/registerController.js"></script>
+    <script src="assets/controllers/loginController.js"></script>
+    <script src="assets/controllers/dashboardController.js"></script>
+    <script src="assets/controllers/topicController.js"></script>
+    <script src="assets/controllers/userController.js"></script>
+    <link rel='stylesheet' href="statics/style.css">
+    <!-- <link rel="stylesheet" type="text/css" href="assets/static/style.css"> -->
+</head>
+<body>
+
+    <div class="container">
+        <div ng-view></div>
+    </div>
+
+</body>
+</html>

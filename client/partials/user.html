@@ -1,0 +1,24 @@
+<div ng-controller='userController'>
+
+	<nav class='navbar navbar-inverse'>
+		<div class='container-fluid'>
+			<div class='navbar-header'>
+				<a href='' class='navbar-brand'>Discussion Board</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li><a href='#!/dashboard'>Home</a>
+				<li class='active'><a href=''>User</a></li>
+			</ul>
+			<button ng-click='logout()' class='btn btn-link navbar-btn navbar-right'>Logout</button>
+		</div>
+	</nav>
+
+
+<div class='jumbotron'>
+  <h2>Username: {{user.username}}</h2>
+  <p>topics: <span class='badge'>{{user.topics.length}}</span></p>
+  <p>answers: <span class='badge'>{{user.answers.length}}</span></p>
+  <p>comments: <span class='badge'>{{user.comments.length}}</span></p>
+</div>
+
+</div>

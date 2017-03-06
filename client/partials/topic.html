@@ -1,0 +1,72 @@
+<div ng-controller='topicController'>
+
+	<nav class='navbar navbar-inverse'>
+		<div class='container-fluid'>
+			<div class='navbar-header'>
+				<a href='' class='navbar-brand'>Discussion Board</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li><a href='#!/dashboard'>Home</a>
+				<li class='active'><a href=''>Topic</a></li>
+			</ul>
+			<button ng-click='logout()' class='btn btn-link navbar-btn navbar-right'>Logout</button>
+		</div>
+	</nav>
+
+	<div class="jumbotron">
+		<h2><strong>{{topic._user.username}}</strong> posted a topic:</h2>
+		<p><strong>Topic:</strong><i> {{topic.topic}}</i></p>
+		<p><strong>Description:</strong><i> {{topic.description}}</i></p>
+	</div>
+
+	<div class='well'>
+		<h3>Post your answer!</h3>
+		<form>
+			<div class="form-group">
+				<textarea ng-model='newAnswer.answer' placeholder="Your answer here..." class='form-control' rows='2'></textarea>
+			</div>
+			<input type="submit" value="New Answer" ng-click="answer()" class="btn btn-primary">
+		</form>
+
+		<div ng-if="answer_errors">
+    		<br>
+    		<div ng-repeat="error in answer_errors" class='alert alert-danger alert-dismissable'>
+      			<a href='' class="close" data-dismiss='alert' aria-label='close'>x</a>
+      			{{error.message}}
+    		</div>
+  		</div>
+	</div>
+
+	<div class='panel panel-default' ng-repeat='answer in topic.answers | orderBy:"-up_voters.length"'>
+		<div class="answer panel-heading">
+			<p><strong><a href='#!/user/{{answer._user._id}}'>{{answer._user.username}}</a></strong>
+			{{answer.answer}}
+				<span class='btn-group pull-right'>
+					<button class='btn btn-default' ng-click='vote(answer._id, "up")'><span class='glyphicon glyphicon-chevron-up'></span> <span style='color:green'>{{answer.up_voters.length}}</span></button>
+					<button class='btn btn-default' ng-click='vote(answer._id, "down")'><span class='glyphicon glyphicon-chevron-down'></span> <span style='color:red'>{{answer.down_voters.length}}</span></button>
+				</span>
+			</p>	
+		</div>
+
+		<div class='comment well' ng-repeat='comment in answer.comments'>
+			<p><strong><a href='#!/user/{{comment._user._id}}'>{{comment._user.username}}</a></strong> {{comment.comment}}</p>
+		</div>
+
+
+		<form class='panel-footer'>
+			<div class="form-group">
+				<textarea ng-model='newComment[answer._id]' placeholder="Your comment here..." class='form-control' rows='2'></textarea>
+			</div>
+			<input type="submit" value="New Comment" ng-click='comment(answer._id)' class="btn btn-primary">
+		</form>
+
+		<div ng-if="comment_errors[answer._id]">
+    		<br>
+    		<div ng-repeat="error in comment_errors[answer._id]" class='alert alert-danger alert-dismissable'>
+      			<a href='' class="close" data-dismiss='alert' aria-label='close'>x</a>
+      			{{error.message}}
+    		</div>
+  		</div>
+	</div>
+
+</div>
