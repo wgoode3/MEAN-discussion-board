@@ -6,7 +6,7 @@
 				<a href='' class='navbar-brand'>Discussion Board</a>
 			</div>
 			<ul class="nav navbar-nav">
-				<li><a href='#!/dashboard'>Home</a>
+				<li><a href='#!/dashboard'>Home</a></li>
 				<li class='active'><a href=''>Topic</a></li>
 			</ul>
 			<button ng-click='logout()' class='btn btn-link navbar-btn navbar-right'>Logout</button>
@@ -51,7 +51,6 @@
 		<div class='comment well' ng-repeat='comment in answer.comments'>
 			<p><strong><a href='#!/user/{{comment._user._id}}'>{{comment._user.username}}</a></strong> {{comment.comment}}</p>
 		</div>
-
 
 		<form class='panel-footer'>
 			<div class="form-group">

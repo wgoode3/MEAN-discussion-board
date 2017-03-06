@@ -2,7 +2,7 @@ var app = angular.module('app', ['ngRoute', 'ngCookies']);
 
 app.config(function($routeProvider) {
   $routeProvider
-    .when('/index', {
+    .when('/', {
       templateUrl: '/partials/index.html'
     })
     .when('/dashboard', {
@@ -15,6 +15,6 @@ app.config(function($routeProvider) {
       templateUrl: '/partials/user.html'
     })
     .otherwise({
-      redirectTo: '/index'
+      redirectTo: '/'
     });
 });
