@@ -42,11 +42,11 @@
     	</div>
     	<div class='form-group'>
       	  	<label for='description'>Description:</label>
-      	  	<textarea class="form-control" rows="3" id="description"></textarea>
+      	  	<textarea class="form-control" rows="3" id="description" ng-model='topic.description'></textarea>
     	</div>
     	<div class="form-group">
     		<label for='category'>Category:</label>
-    		<select class="form-control" id="category">
+    		<select class="form-control" id="category" ng-model='topic._category'>
     			<option ng-repeat='cat in categories | orderBy:"category"' value="{{cat._id}}">{{cat.category}}</option>
     		</select>
     	</div>
