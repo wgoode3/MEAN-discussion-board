@@ -34,7 +34,6 @@ app.controller('dashboardController', ['$scope', 'userFactory', 'topicFactory', 
 	$scope.addTopic = function(){
 		var topic = $scope.topic;
 		topic._user = cookieJar.id;
-		console.log('this is the topic', topic);
 		topicFactory.addTopic(topic, function(data){
 			if(data.errors){
 				$scope.topic_errors = data.errors;
